@@ -1,0 +1,39 @@
+\documentclass{report}
+\include{preamble}
+\usepackage{booktabs}
+
+\title{\LectureTitle: Problem Set 7}
+
+\begin{document}
+\maketitle
+\newpage
+
+\section{d}
+
+We ran the following cross-section regression every month, here $r_{t-1}$ means the past one-month return, $r_{t-212}$ means the cumulative return of past 12 months, skipping the most recent month and  $r_{t-1360}$ means the cumulative return of past 60 months, skipping the most recent 12 month.  
+\[ r_{t-1}-r_{f} = \alpha + \beta_{1} r_{t-1} + \beta_{2} r_{t-212} + \beta_{3} r_{t-1360} \]
+Then we got the average coefficients and time-series t-statistics reported below. We noticed that all three coefficients on the lagged returns of each portfolio are $5\%$ significantly different from 0 and all positive. The $\alpha$ here is not significantly different from 0, which is not surprising since on average they do not bearing more systematic risks. These coefficients indicate a statistically significant positive return predictability, which means above average returns in the past can predict above average returns in the future of each portfolio. Considering relation between past returns and average returns, if past returns factors we used like $r_{t-1}$ is above average returns in one portfolio, the returns of that portfolio now has $\beta_{1} r_{t-1}$ higher returns on average although the magnitude may not be large. Since we can use past returns to predict future returns, it violates the weak form of market efficiency. First, it might because of people are underact to information, which makes market inefficicent and has momentum for each strategy. Second, it might also because of data snooping problem, which means the significance of $\beta$ are spurious. Third, it might because some consistency of some factors. For example, small past losers may suffer from a systematic technology downside unexpected shocks and the shocks continue for few months. Then the low return of last month's small losers can predict a low return of this month's small losers. Furthhermore, it might because market friction, such as transaction costs or illiquidity of some losers.
+\begin{table}[H]
+\centering
+\begin{tabular}{|l|l|l|l|l|}
+\hline
+        & $\alpha$  & $r_{t-1}$ & $r_{t-212}$ & $r_{t-1360}$ \\ \hline
+average & 0.1336 & 0.0604                & 0.0208               & 0.0061               \\ \hline
+t-stat  & 0.7471 & 5.4049                & 7.0469               & 5.8994               \\ \hline
+\end{tabular}
+\end{table}
+
+
+\section{e}
+
+First, since the small, past one-month loser has large January effect and large average returns and the large, past one-month winner has small January effect and small average returns,  we tried to go long the smallest, past one-month loser (first column in spreadsheet) and go short the largest, past one-month winner (25th column in spreadsheet) at each period to collect January abnormal return suggested by question a, return from predictability suggested by question b and maybe size premium. We found the annual Sharpe Ratio is 0.7284, which is not bad. For now, we only considered the returns of portfolios we wanted to apply, we did not consider the correlation between the portfolios and how they interacted if we combined them in a strategy. However, if two portfolios are positively correlated and we long one and short the other, it may also give us positive returns with pretty low standard deviation. Thus, we also tried to go long the smallest, past one-month loser (first column in spreadsheet) and go short smallest, past one-month winner (fifth column in spreadsheet). And we found it delivered a pretty good annual Sharpe Ratio, the maximum we found, 1.3469. The strategy's mean, standard deviation and Sharpe Ratio are reported below.
+\begin{table}[H]
+\centering
+\begin{tabular}{|l|l|l|l|l|}
+\hline
+                                                                                                       & Mean   & Standard deviation & Monthly Sharpe Ratio & Annual Sharpe Ratio \\ \hline
+\begin{tabular}[c]{@{}l@{}}short smallest, 1-month loser, long \\ largest, 1-month winner\end{tabular} & 2.2232 & 5.7180             & 0.3888               & 1.3469              \\ \hline
+\end{tabular}
+\end{table}
+\end{document}
+
